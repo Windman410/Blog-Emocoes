@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <article class="card h-100 bg-light mt-2">
+	    <div class="card-body">
+	    	<h1 class='card-title'> <%= @artigo.titulo %> </h5>
+	    	<h6 class="card-subtitle  mb-2 text-muted"> Categoria da Postagem </h6>
+	    	<p  class='card-text'> <%= @artigo.texto %> </p>
+			<%= link_to 'Voltar', artigos_path , :class => 'btn btn-primary'  %>		    	
+		</div>
+		<div class="card-footer text-muted">
+			1 de Janeiro de 2019
+		</div>
+    </article>
+		
+
+<h2 class="text-center mt-2">Comentários</h2>
+<%= render @artigo.comentario %>
+
+<h2>Adicionar um comentário:</h2>
+<%= render 'comentarios/form' %>
+
+</div>

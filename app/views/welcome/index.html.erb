@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<% @artigos.sort_by{ |i| -i[:id]  }.each do |artigo| %>
+		<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-3">
+		    <article class="card h-100 text-center bg-light">
+			    <div class="card-body">
+			    	<h5 class='card-title'> <%= artigo.titulo %> </h5>
+			    	<h6 class="card-subtitle  mb-2 text-muted"> Categoria da Postagem </h6>
+			    	<p  class='card-text'> <%= artigo.texto.from(0).to(100) + '...' %> </p>
+			    	<%= link_to 'Ler Post', artigo_path(artigo) , :class => 'btn btn-primary' %>			    	
+				</div>
+				<div class="card-footer text-muted">
+					1 de Janeiro de 2019
+				</div>
+		    </article>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+

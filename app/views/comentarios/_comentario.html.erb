@@ -1,0 +1,14 @@
+<article class="card h-100 bg-light mt-2">
+    <div class="card-body">
+    	<div class="row ">
+	    	<h5 class='card-title border-bottom col-sm-12'> <%= comentario.nome %> </h5>
+	    	<p  class='card-text col-md-10'> <%= comentario.texto %> </p>
+			<%= link_to 'Deletar Comentário', [comentario.artigo, comentario],
+		        :method => :delete,
+		        data: { confirm: 'Tem certeza que deseja deletar o comentário?' }, :class => 'btn btn-primary float-right col-md-2' %> 
+	    </div> 	
+	</div>
+	<div class="card-footer text-muted">
+		1 de Janeiro de 2019
+	</div>
+</article>

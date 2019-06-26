@@ -1,0 +1,35 @@
+@import "bootstrap";
+
+body{
+	background-color: #FEFDD4;
+}
+
+.navbar-brand img{
+	max-width: 48px;
+	max-height: 48px;
+}
+/* Transição do Toggle  */
+.collapsing {
+  -webkit-transition: height .35s ease;
+       -o-transition: height .35s ease;
+          transition: height .35s ease;
+}
+/* Banner Página Inicial */
+.fundo{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: image-url('paisagem.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 200px;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+/* Tamanho do tetarea da pagina de criação de posts*/
+.postagem{
+	height: 500px;
+}
