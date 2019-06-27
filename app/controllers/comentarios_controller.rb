@@ -1,6 +1,4 @@
 class ComentariosController < ApplicationController
-  http_basic_authenticate_with name: "nome", password: "senha", only: :destroy
-
   def create
     @artigo = Artigo.find(params[:artigo_id])
     @comentario = @artigo.comentario.create(comentario_params)

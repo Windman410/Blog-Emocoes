@@ -1,22 +1,28 @@
-<h1>Todas Postagens</h1>
- 
-<table class="table">
-  <tr>
-    <th scope="col">Titulo</th>
-    <th scope="col">Texto</th>
-    <th scope="col"> Opções</th>
-  </tr>
- 
-  <% @artigos.each do |artigo| %>
+<div class="container">
+  <h1 class="text-center mt-3">Todas Postagens</h1>
+  <table class="table">
     <tr>
-      <td scope="row"><%= artigo.titulo %></td>
-      <td><%= artigo.texto.from(0).to(100) + '...' %></td>
-      <td><%= link_to 'Abrir', artigo_path(artigo), :class => 'btn btn-primary'  %>
-        <%= link_to 'Editar', edit_artigo_path(artigo), :class => 'btn btn-primary'  %>
-        <%= link_to 'Deletar', artigo_path(artigo),
-                method: :delete,
-                data: { confirm: 'Tem certeza que deseja deletar o post?' }, :class => 'btn btn-primary'  %>
-      </td>
+      <th scope="col">Titulo</th>
+      <th scope="col">Texto</th>
+      <th scope="col"> Opções</th>
     </tr>
-  <% end %>
-</table>
+   
+    <% @artigos.each do |artigo| %>
+      <tr>
+        <td scope="row"><%= artigo.titulo %></td>
+        <td><%= artigo.texto.from(0).to(100) + '...' %></td>
+        <td>
+          <div class="btn-group" role="group" aria-label="Opções">
+            <%= link_to 'Abrir', artigo_path(artigo), :class => 'btn btn-primary'  %>
+            <% if logged_in? %>
+              <%= link_to 'Editar', edit_artigo_path(artigo), :class => 'btn btn-primary'  %>
+              <%= link_to 'Deletar', artigo_path(artigo),
+                      method: :delete,
+                      data: { confirm: 'Tem certeza que deseja deletar o post?' }, :class => 'btn btn-primary'  %>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

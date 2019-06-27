@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_043306) do
+ActiveRecord::Schema.define(version: 2019_06_27_052418) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "nome"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+  end
 
   create_table "artigos", force: :cascade do |t|
     t.string "titulo"
@@ -26,6 +35,19 @@ ActiveRecord::Schema.define(version: 2019_06_26_043306) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artigo_id"], name: "index_comentarios_on_artigo_id"
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "nome"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_usuarios_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
 end

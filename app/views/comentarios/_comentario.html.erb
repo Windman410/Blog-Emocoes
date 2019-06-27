@@ -3,9 +3,11 @@
     	<div class="row ">
 	    	<h5 class='card-title border-bottom col-sm-12'> <%= comentario.nome %> </h5>
 	    	<p  class='card-text col-md-10'> <%= comentario.texto %> </p>
+			<% if logged_in? %>
 			<%= link_to 'Deletar Comentário', [comentario.artigo, comentario],
 		        :method => :delete,
 		        data: { confirm: 'Tem certeza que deseja deletar o comentário?' }, :class => 'btn btn-primary float-right col-md-2' %> 
+		    <% end %>
 	    </div> 	
 	</div>
 	<div class="card-footer text-muted">
